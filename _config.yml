@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: VIP FE @ SH
 subtitle:
 description:
-author: John Doe
+author: yangxu
 language:
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://vip-fe-sh.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -71,5 +71,5 @@ deploy:
   type: git
   repo: https://github.com/vip-fe-sh/vip-fe-sh.github.io.git
   branch: master
-  message: Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}
+  message: Site updated @ {{ now('YYYY-MM-DD HH:mm:ss') }}
 
