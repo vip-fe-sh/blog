@@ -6,11 +6,20 @@
   var $body = document.body;
   var $toc = document.getElementById('toc');
   var $backTop = document.getElementById('backTop');
+  var $toolboxMobile = document.getElementById('toolbox-mobile');
+  var $cover = document.getElementById('cover');
+  var $close = document.getElementById('close');
+  var $modalDialog = document.getElementById('modal-dialog');
   var scrollTop = 0;
+
 
   (function init() {
     if ($backTop) {
       $body.scrollTop > 10 ? Util.addClass($backTop, 'show') : Util.removeClass($backTop, 'show');
+    }
+
+    if ($toc) {
+      $body.scrollTop > 180 ? Util.addClass($toc, 'fixed') : Util.removeClass($toc, 'fixed');
     }
 
   }());
@@ -20,6 +29,12 @@
   }, false);
 
   window.noZensmooth = true;
+
+  // scroll spy
+  scrollSpy.init({
+    nodeList: document.querySelectorAll('.toc-link'),
+    scrollTarget: window
+  });
 
   // toc and backTop
   Util.bind(window, 'scroll', function() {
@@ -44,12 +59,6 @@
     var $tocLinks = document.querySelectorAll('.toc-link');
     var links = Array.prototype.slice.call($tocLinks);
 
-    activeTocLink(links);
-
-    Util.bind(window, 'scroll', function() {
-      activeTocLink(links);
-    });
-
     links.forEach(function(element) {
       Util.bind(element, 'click', function(e) {
         var $target = document.getElementById(this.hash.substring(1));
@@ -58,6 +67,21 @@
       });
     });
   }
+
+  if ($toolboxMobile) {
+    Util.bind($toolboxMobile, 'click', function() {
+      Util.addClass($modalDialog, 'show-dialog')
+      Util.removeClass($modalDialog, 'hide-dialog');
+
+      Util.addClass($cover, 'show')
+      Util.removeClass($cover, 'hide');
+    });
+
+
+    Util.bind($cover, 'click', closeModal);
+    Util.bind($close, 'click', closeModal);
+  }
+
 
   if (location.pathname === '/search/') {
     Util.request('GET', '/search.json', function(data) {
@@ -77,17 +101,8 @@
     });
   }
 
+
   ///////////////////
-
-  function activeTocLink(links) {
-    links.forEach(function(element) {
-      Util.removeClass(element, 'active');
-
-      if (element.hash === location.hash) {
-        Util.addClass(element, 'active');
-      }
-    });
-  }
 
   function filterPosts(data, keywords) {
     var results = [];
@@ -173,5 +188,14 @@
 
     return text;
   }
+
+
+  function closeModal() {
+    Util.addClass($modalDialog, 'hide-dialog')
+    Util.removeClass($modalDialog, 'show-dialog');
+    Util.addClass($cover, 'hide')
+    Util.removeClass($cover, 'show');
+  }
+
 
 }());

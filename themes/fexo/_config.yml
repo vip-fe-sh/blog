@@ -1,4 +1,4 @@
-  # Blog info
+# Blog info
 blog_name: VIP FE @ SH
 slogan: eat more, sleep more, code more
 url: http://vip-fe-sh.com
@@ -131,11 +131,11 @@ about:
     text_value: 上海
 
 project:
-  - type: personal
+  - type: company
     name: vip-cli
     url: https://github.com/vip-fe-sh/vip-cli
     intro: A simple CLI for scaffolding Vue.js projects in VIP
-  - type: personal
+  - type: company
     name: template-vips
     url: https://github.com/vip-fe-sh/template-vips
     intro: A full-featured Webpack setup with hot-reload, lint-on-save, resource fetch & css extraction
