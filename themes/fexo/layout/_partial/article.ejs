@@ -8,12 +8,14 @@
         <span><%= date(post.date, 'YYYY.MM.DD') %></span>
       </span>
 
-      <% if (config.author){ %>
-        <span class="article-author">
-          <i class="icon-user"></i>
+      <span class="article-author">
+        <i class="icon-user"></i>
+        <% if (post.author){ %>
+          <span><%= post.author %></span>
+        <% } else { %>
           <span><%= config.author %></span>
-        </span>
-      <% } %>
+        <% } %>
+      </span>
 
       <%- partial('component/category') %>
 
