@@ -26,7 +26,7 @@ tags: [前端, 组件化]
 
 ## 框架选择
 
-目前主流的组件化框架大概有这些：Angular、React、Polymer、Vue，各有优劣，适用的场景也不同，网上也有很多各个框架之间比较的文章，[https://www.zhihu.com/question/39943474](https://www.zhihu.com/question/39943474)，[https://www.zhihu.com/question/38989845](https://www.zhihu.com/question/38989845)，[https://www.zhihu.com/question/38576309](https://www.zhihu.com/question/38576309)，[http://zhuanlan.zhihu.com/p/20549104](http://zhuanlan.zhihu.com/p/20549104)，这里就不具体展开讲了，建议对每个框架都简单了解一下，看下api以及官方demo的写法，根据自己项目的需求选择最合适的框架。
+目前主流的组件化框架大概有这些：Angular、React、Polymer、Vue，各有优劣，适用的场景也不同，网上也有很多各个框架之间比较的文章，[39943474](https://www.zhihu.com/question/39943474)，[38989845](https://www.zhihu.com/question/38989845)，[38576309](https://www.zhihu.com/question/38576309)，[20549104](http://zhuanlan.zhihu.com/p/20549104)，这里就不具体展开讲了，建议对每个框架都简单了解一下，看下api以及官方demo的写法，根据自己项目的需求选择最合适的框架。
 
 ## 组件管理
 
