@@ -6,8 +6,6 @@ category: web开发
 tags: [前端, 组件化]
 ---
 
-# 前端组件化的一些思考
-
 这两年「前端组件化」这个词已经被玩了很久了，angular，react 等框架也在不同的方向上做了很多的探索，在我们团队，由于是内部应用项目，目前的架构设计比较简单，对后续的扩展和维护都不太方便，所以最近也在尝试接入「高大上」的组件化模式，本文记录在项目开发前后的一些思考。
 
 ## 一切皆组件
@@ -24,15 +22,15 @@ tags: [前端, 组件化]
 
 ## 数据流转
 
-组件的数据决定了组件的展现，对于组件数据，建议的做法是统一管理，所有的数据、更改数据的方法、加载数据的方法，集中在一处管理，由页面根组件把数据分别派发到各个组件，类似facebook的flux架构，这样子可以有效的控制数据的流向和数据源的唯一性。
-Immutable Data
+组件的数据决定了组件的展现，对于整个应用的数据流转，推荐采用类似 facebook 的 [flux](https://facebook.github.io/flux/) 架构的单向数据流模式，通过一层 store，统一管理所有的数据，由页面根组件把数据分别派发到各个组件，在组件中使用事先注册的 action 更新 store 中的数据，然后通过框架的双向绑定机制更新组件的 view，flux 架构的实现方式有很多种，除了 facebook 自己的 [flux](https://github.com/facebook/flux)，社区流行的实现还有 [redux](https://github.com/reactjs/redux)，[reflux](https://github.com/reflux/refluxjs) 等，具体的功能和用法可能有些差异，不过基本的概念和思路都是一致的，可以根据个人的偏好和需求选择，如果还有兴趣的话，可以了解一下 facebook 的 [immutable-js](https://github.com/facebook/immutable-js)，实现了 js 中的不可变数据类型，对于需要频繁操作 store 的场景，更加快速、安全和方便。
 
-## 样式管理
+## 框架选择
 
-
-## 组件化框架
-
+目前主流的组件化框架大概有这些：Angular、React、Polymer、Vue，各有优劣，适用的场景也不同，网上也有很多各个框架之间比较的文章，[https://www.zhihu.com/question/39943474](https://www.zhihu.com/question/39943474)，[https://www.zhihu.com/question/38989845](https://www.zhihu.com/question/38989845)，[https://www.zhihu.com/question/38576309](https://www.zhihu.com/question/38576309)，[http://zhuanlan.zhihu.com/p/20549104](http://zhuanlan.zhihu.com/p/20549104)，这里就不具体展开讲了，建议对每个框架都简单了解一下，看下api以及官方demo的写法，根据自己项目的需求选择最合适的框架。
 
 ## 组件管理
 
-> to be continue...
+组件开发完成后，如何能更方便的在别的项目中复用，也是一个要思考的问题，简单的方法是直接拷贝组件的目录到新项目中，然后就作为本地组件直接引用，当然这个方法非常不「前端」，所以更好的方式是通过 npm 管理，把完成的组件包发布到 npm 上，其他项目只需要通过 npm 安装相关包即可使用，对于通用非业务组件使用这种方式可以很好的满足需求，但是如果是具体的业务组件，出于安全考虑，不能直接发布到 npm 上，除非可以建立私有 npm仓库，要不就还是拷贝吧。
+
+> to be continued...
+
